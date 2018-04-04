@@ -8,9 +8,9 @@ var obja = function() {
   }
 
   this.receiveMsg = function(msg) {
-    if(!door) {
+    if (!door) {
       door = new doorGetter(msg);
-    }  else {
+    } else {
       door.msg = msg;
     }
     return this;
@@ -18,17 +18,11 @@ var obja = function() {
 
   this.response = function() {
     if (door.msg === 'hello') {
-      return {
-        msg: 'hi'
-      } 
+      return {msg: 'hi'}
     } else if (door.msg) {
-      return {
-        msg: 'sorry'
-      }
+      return {msg: 'sorry'}
     } else {
-      return {
-        msg: null
-      }
+      return {msg: null}
     }
   }
 }
@@ -72,28 +66,22 @@ class Obja {
     } else {
       door.msg = msg;
       set(this, 'door', door);
-    } 
+    }
     return this;
   }
   response() {
     var door = get(this, 'door');
     if (door.msg === 'hey') {
-      return {
-        msg: "nice to meet you"
-      }
+      return {msg: "nice to meet you"}
     } else if (door.msg) {
-      return {
-        msg: "sorry again"
-      }
+      return {msg: "sorry again"}
     } else {
-      return {
-        msg: null
-      };
+      return {msg: null};
     }
   }
 }
 class Objb {
-  constructor() { }   
+  constructor() {}
   call(obj, msg) {
     var res = obj.receiveMsg(msg).response();
     return res;
